@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class GameBoostrap : StateMachine {
+public class GameBootstrap : StateMachine {
+    public CategorySelector CategorySelector;
+
     public void Start() {
         //Any system implementations are done here
 

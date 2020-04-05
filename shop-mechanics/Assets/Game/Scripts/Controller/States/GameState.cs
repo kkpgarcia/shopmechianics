@@ -1,9 +1,10 @@
 using UnityEngine;
 
 public class GameState : State {
-    protected GameBoostrap Owner;
+    protected GameBootstrap Owner;
+    protected CategorySelector CategorySelector { get { return Owner.CategorySelector; } }
 
     private void Awake() {
-        this.Owner = this.GetComponent<GameBoostrap>();
+        this.Owner = this.GetComponent<GameBootstrap>();
     }
 }
