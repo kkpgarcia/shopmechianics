@@ -12,21 +12,28 @@ public class Category : MonoBehaviour {
     [SerializeField]
     private Panel m_Panel;
     private int m_Index;
+    private bool m_IsSelected = false;
 
     private void Start() {
         this.m_Panel.SetPosition("Unselected", false);
     }
 
     public void Initialize(int index, string title, UnityAction<string> action) {
+       
+
         this.Title.text = title;
         this.m_Button.onClick.AddListener(() => {
+             if(m_IsSelected)
+                return;
+
+            m_IsSelected = true;
+            
             if(action != null)
                 action(this.Title.text);
 
             SelectCategory();
         });
         this.m_Index = index;
-        
     }
     
     public void SelectCategory() {
@@ -39,6 +46,7 @@ public class Category : MonoBehaviour {
 
     // to remove
     public void UnselectCategory() {
+        m_IsSelected = false;
         this.m_Panel.SetPosition("Unselected", true)
             .SetDuration(0.5f)
             .SetEquation(EasingEquations.EaseInOutQuint);
