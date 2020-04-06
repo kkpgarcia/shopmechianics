@@ -11,6 +11,8 @@ public class InitializeState : GameState {
         
         for(int i = 0; i < categories.Length; i++)
             CategorySelector.AddCategory(i, categories[i], OnSelectCategory);
+    
+        MessageController.ClearOverlay();
     }
 
     public void OnSelectCategory(string s) {
@@ -26,7 +28,21 @@ public class InitializeState : GameState {
     }
 
     public void OnSelectItem(Item item) {
-        Debug.Log("Selected Item: " + item.Name);
+        MessageController.Initialize(
+            string.Format("Would you like to purchase {0} for ${1}?", item.Name, item.Price),
+            OnConfirm,
+            OnCancel
+        );
+
+        MessageController.Show();
+    }
+
+    private void OnConfirm() {
+        MessageController.ClearOverlay();
+    }
+
+    private void OnCancel() {
+        MessageController.ClearOverlay();
     }
 
     public void LoadShop() {}

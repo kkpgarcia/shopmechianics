@@ -183,6 +183,9 @@ GameObject:
   - component: {fileID: 150960973}
   - component: {fileID: 150960975}
   - component: {fileID: 150960974}
+  - component: {fileID: 150960978}
+  - component: {fileID: 150960977}
+  - component: {fileID: 150960976}
   m_Layer: 5
   m_Name: Confirmation Panel
   m_TagString: Untagged
@@ -250,6 +253,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150960972}
   m_CullTransparentMesh: 0
+--- !u!114 &150960976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150960972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f322ecefe3a41ce88a1031d9162508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionList:
+  - Name: Show
+    MyAnchor: 4
+    ParentAnchor: 4
+    Offset: {x: 0, y: 0}
+  - Name: Hide
+    MyAnchor: 7
+    ParentAnchor: 1
+    Offset: {x: 0, y: 0}
+--- !u!114 &150960977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150960972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ce4c4eccdd34aaba8618173e438357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &150960978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150960972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49007fac71404154dae16128440df0f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Message: {fileID: 1108699283}
+  m_Cancel: {fileID: 1301957609}
+  m_Confirm: {fileID: 1374111051}
+  m_Panel: {fileID: 150960976}
 --- !u!1 &228190987
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,13 +490,14 @@ GameObject:
   - component: {fileID: 437397849}
   - component: {fileID: 437397848}
   - component: {fileID: 437397847}
+  - component: {fileID: 437397851}
   m_Layer: 5
   m_Name: Message Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &437397847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +556,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &437397850
 RectTransform:
@@ -526,6 +579,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &437397851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437397846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9111644ebe958646b4d474b8a3e178e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MessageBox: {fileID: 150960978}
+  Overlay: {fileID: 1251802820}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,6 +1136,7 @@ GameObject:
   - component: {fileID: 1251802817}
   - component: {fileID: 1251802819}
   - component: {fileID: 1251802818}
+  - component: {fileID: 1251802820}
   m_Layer: 5
   m_Name: Overlay
   m_TagString: Untagged
@@ -1133,6 +1201,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251802816}
   m_CullTransparentMesh: 0
+--- !u!114 &1251802820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251802816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17292e12e45c7a04190425b7c5f71f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Image: {fileID: 1251802818}
 --- !u!1 &1286190527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2073,7 @@ MonoBehaviour:
   CategorySelector: {fileID: 133071830}
   StoreManager: {fileID: 1679894377}
   ItemGrid: {fileID: 1736265019}
+  MessageController: {fileID: 437397851}
 --- !u!114 &1679894377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2218,10 +2300,10 @@ RectTransform:
   m_Father: {fileID: 1327720463}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 241.78, y: -56.4}
-  m_SizeDelta: {x: -484.46457, y: -112.79997}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 241.78, y: -56.399994}
+  m_SizeDelta: {x: -484.46457, y: 487.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736265019
 MonoBehaviour:

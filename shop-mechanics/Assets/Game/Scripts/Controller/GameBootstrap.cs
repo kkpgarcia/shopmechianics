@@ -5,6 +5,8 @@ public class GameBootstrap : StateMachine {
     public StoreManager StoreManager;
     public ItemGrid ItemGrid;
 
+    public MessageController MessageController;
+
     public void Start() {
         //Any system implementations are done here
 
