@@ -19,13 +19,12 @@ public class ItemGrid : MonoBehaviour {
         ItemEntry newEntry = CreateItemEntry();
         newEntry.Initialize(item, callback, showPrice);
         newEntry.transform.SetParent(m_Parent);
+        newEntry.transform.localScale = Vector3.one;
         this.m_ItemEntries.Add(newEntry);
     }
 
     public void Remove(Item item) {
-        ItemEntry entry = m_ItemEntries.SingleOrDefault(x => x.Compare(item));
-
-        Debug.Log(entry == null);
+        ItemEntry entry = m_ItemEntries.FirstOrDefault(x => x.Compare(item));
 
         if(entry == null)
             return;

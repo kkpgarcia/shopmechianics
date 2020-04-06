@@ -40,11 +40,13 @@ public class MessageBox : MonoBehaviour {
     public void Show() {
         m_Panel.SetPosition("Show", true)
             .SetDuration(0.5f)
-            .SetEquation(EasingEquations.EaseInQuad);
+            .SetEquation(EasingEquations.EaseInOutQuad);
     }
 
     public void Hide() {
-        m_Panel.SetPosition("Hide", true);
+        m_Panel.SetPosition("Hide", true)
+            .SetDuration(0.5f)
+            .SetEquation(EasingEquations.EaseInOutQuad);;
     }
 
     public void Clean() {

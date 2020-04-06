@@ -28,7 +28,7 @@ public class StateMachine : MonoBehaviour
 	{
 		CurrentState = GetState<T>();
 
-		Debug.Log("CHANGING STATE TO: " + CurrentState.GetType().Name);
+		//Debug.Log("CHANGING STATE TO: " + CurrentState.GetType().Name);
 	}
 
 	protected virtual void Transition (State value)
