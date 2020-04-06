@@ -29,6 +29,10 @@ public class ItemEntry : MonoBehaviour {
         });
     }
 
+    public bool Compare(Item item) {
+        return m_Item == item;
+    }
+
     private void OnDisable() {
         this.m_Button.onClick.RemoveAllListeners();
     }

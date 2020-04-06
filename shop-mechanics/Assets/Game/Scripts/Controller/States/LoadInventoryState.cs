@@ -9,9 +9,16 @@ public class LoadInventoryState : GameState {
         Item[] items = PlayerData.Instance.Items.ToArray();
 
         foreach(Item i in items) {
-            InventoryGrid.AddItem(i, (item) => {
-                Debug.Log("Selected item: " + item.Name);
-            }, false);
+            InventoryGrid.AddItem(i, OnSelectItem, false);
         }
+    }
+
+    public void OnSelectItem(Item item) {
+        if(item == null)
+            return;
+
+        StoreManager.ItemSelected = item;
+
+        this.Owner.ChangeState<SellSelectionState>();   
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using Common.ObjectPool;
+using System.Linq;
 
 public class ItemGrid : MonoBehaviour {
     //[SerializeField]
@@ -19,6 +20,18 @@ public class ItemGrid : MonoBehaviour {
         newEntry.Initialize(item, callback, showPrice);
         newEntry.transform.SetParent(m_Parent);
         this.m_ItemEntries.Add(newEntry);
+    }
+
+    public void Remove(Item item) {
+        ItemEntry entry = m_ItemEntries.SingleOrDefault(x => x.Compare(item));
+
+        Debug.Log(entry == null);
+
+        if(entry == null)
+            return;
+
+        m_ItemEntries.Remove(entry);
+        ObjectPool.Instance.PoolObject(entry.gameObject);
     }
 
     public void ClearGrid() {
