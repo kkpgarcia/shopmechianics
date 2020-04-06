@@ -1,6 +1,6 @@
 public enum ItemType {
-    HAT,
+    SWORD,
     SHIRT,
-    PANTS,
+    SHIELD,
     SHOES
 }

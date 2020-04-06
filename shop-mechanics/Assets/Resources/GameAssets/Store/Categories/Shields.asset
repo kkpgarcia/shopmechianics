@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ed9e6fd73f53824a9f1a8f3f5a21dc7, type: 3}
-  m_Name: Hats
+  m_Name: Shields
   m_EditorClassIdentifier: 
   ItemList:
-  - {fileID: 11400000, guid: db11b5c25ff7db340a0cc2457f8551fe, type: 2}
-  - {fileID: 11400000, guid: 14b153b8f4d445641a42f478eab52a6c, type: 2}
-  - {fileID: 11400000, guid: 21a9147e56d38444196bdbd60f9605c9, type: 2}
+  - {fileID: 11400000, guid: 65bf19890bcb8e04fa59a639d340ca90, type: 2}
+  - {fileID: 11400000, guid: 8c71560be9527e84b9debeb096cd9f33, type: 2}
+  - {fileID: 11400000, guid: 73231c24b22819f4682694d1707af99e, type: 2}

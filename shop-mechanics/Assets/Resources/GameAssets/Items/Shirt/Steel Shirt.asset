@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item:
     Name: Steel Shirt
+    Icon: {fileID: -6246986381618941072, guid: 8fc0b87c2fc3a824b8212d452ba0d505, type: 3}
     Price: 50
     Type: 1

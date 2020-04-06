@@ -19,15 +19,13 @@ public class Category : MonoBehaviour {
     }
 
     public void Initialize(int index, string title, UnityAction<string> action) {
-       
-
         this.Title.text = title;
         this.m_Button.onClick.AddListener(() => {
              if(m_IsSelected)
                 return;
 
             m_IsSelected = true;
-            
+
             if(action != null)
                 action(this.Title.text);
 
