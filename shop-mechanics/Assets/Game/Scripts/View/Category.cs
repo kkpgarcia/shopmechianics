@@ -43,7 +43,7 @@ public class Category : MonoBehaviour {
     }
 
     // to remove
-    public void UnselectCategory() {
+    public void UnselectCategory(bool animated = true) {
         m_IsSelected = false;
         this.m_Panel.SetPosition("Unselected", true)
             .SetDuration(0.5f)

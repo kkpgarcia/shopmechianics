@@ -34,6 +34,8 @@ public class CategorySelector : MonoBehaviour {
     }
 
     public void ClearCategory() {
+        OnClearSelection(null, null);
+
         foreach(Category category in m_Categories)
             ObjectPool.Instance.PoolObject(category.gameObject);
 
@@ -56,7 +58,7 @@ public class CategorySelector : MonoBehaviour {
         if(m_CurrentSelected == -1)
             return;
 
-        m_Categories[m_CurrentSelected].UnselectCategory();
+        m_Categories[m_CurrentSelected].UnselectCategory(sender != null);
         m_CurrentSelected = -1;
     }
 }

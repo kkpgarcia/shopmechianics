@@ -38,5 +38,6 @@ public class MenuHeader : MonoBehaviour {
 
     private void OnHeaderUpdate(object sender, object args) {
         //Update Header
+        m_CurrencyText.text = "$ " + PlayerData.Instance.Currency;
     }
 }
