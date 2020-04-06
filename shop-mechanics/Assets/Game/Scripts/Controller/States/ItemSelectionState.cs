@@ -20,6 +20,7 @@ public class ItemSelectionState : GameState {
 
         if(PlayerData.Instance.Currency - currItem.Price < 0) {
             //Insufficient funds
+            this.Owner.ChangeState<InsufficientState>();
         } else {
             PlayerData.Instance.Currency -= currItem.Price;
             PlayerData.Instance.Items.Add(currItem);

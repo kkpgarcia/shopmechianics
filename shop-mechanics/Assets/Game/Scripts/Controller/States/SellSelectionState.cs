@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class SellSelectionState : GameState {
     public override void Enter() {
@@ -8,7 +9,7 @@ public class SellSelectionState : GameState {
             OnConfirm,
             OnCancel
         );
-
+        
         MessageController.Show();
     }
 

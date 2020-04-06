@@ -8,6 +8,6 @@ public class PlayerData : MonoSingleton<PlayerData> {
 
     public void Initialize() {
         Items = new List<Item>();
-        Currency = 500;
+        Currency = 5;
     }
 }

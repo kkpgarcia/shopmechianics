@@ -67,7 +67,7 @@ namespace Common.ObjectPool
 			for (int i = 0; i < objectPrefabs.Length; i++) {
 				if (objectPrefabs [i].name == obj.name) {
 					obj.SetActive (false);
-					obj.transform.transform.parent = objectContainer.transform;
+					obj.transform.transform.SetParent(objectContainer.transform);
 					pooledObjects [i].Add (obj);
 					return;
 				}

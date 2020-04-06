@@ -15,6 +15,8 @@ public class MessageBox : MonoBehaviour {
     [SerializeField]
     private Panel m_Panel;
 
+    private Tweener m_CurrentTween;
+
     private void Start() {
         m_Panel.SetPosition("Hide", false);
     }
@@ -36,7 +38,9 @@ public class MessageBox : MonoBehaviour {
     }
 
     public void Show() {
-        m_Panel.SetPosition("Show", true);
+        m_Panel.SetPosition("Show", true)
+            .SetDuration(0.5f)
+            .SetEquation(EasingEquations.EaseInQuad);
     }
 
     public void Hide() {
