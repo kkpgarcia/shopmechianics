@@ -16,16 +16,20 @@ public class ItemEntry : MonoBehaviour {
 
     private Item m_Item;
     
-    public void Initialize(Item item, UnityAction<Item> callback) {
+    public void Initialize(Item item, UnityAction<Item> callback, bool showPrice = true) {
         m_Item = item;
 
         this.m_Icon.sprite = m_Item.Icon;
         this.m_ItemName.text = m_Item.Name;
-        this.m_Cost.text = "$" + m_Item.Price;
+        this.m_Cost.text = showPrice ? "$" + m_Item.Price : "";
 
         this.m_Button.onClick.AddListener(() => {
             if(callback != null)
                 callback(m_Item);
         });
+    }
+
+    private void OnDisable() {
+        this.m_Button.onClick.RemoveAllListeners();
     }
 }

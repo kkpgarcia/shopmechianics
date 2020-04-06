@@ -42,4 +42,9 @@ public class MessageBox : MonoBehaviour {
     public void Hide() {
         m_Panel.SetPosition("Hide", true);
     }
+
+    public void Clean() {
+        m_Cancel.onClick.RemoveAllListeners();
+        m_Confirm.onClick.RemoveAllListeners();
+    }
 }

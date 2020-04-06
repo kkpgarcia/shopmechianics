@@ -22,4 +22,8 @@ public class MessageController : MonoBehaviour {
     public void ClearOverlay() {
         Overlay.Hide();
     }
+
+    public void Clean() {
+        MessageBox.Clean();
+    }
 }

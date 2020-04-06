@@ -14,9 +14,9 @@ public class ItemGrid : MonoBehaviour {
     
     private List<ItemEntry> m_ItemEntries = new List<ItemEntry>();
     
-    public void AddItem(Item item, UnityAction<Item> callback) {
+    public void AddItem(Item item, UnityAction<Item> callback, bool showPrice = true) {
         ItemEntry newEntry = CreateItemEntry();
-        newEntry.Initialize(item, callback);
+        newEntry.Initialize(item, callback, showPrice);
         newEntry.transform.SetParent(m_Parent);
         this.m_ItemEntries.Add(newEntry);
     }
@@ -24,7 +24,7 @@ public class ItemGrid : MonoBehaviour {
     public void ClearGrid() {
         if(m_ItemEntries.Count == 0)
             return;
-            
+
         foreach(ItemEntry entry in m_ItemEntries) {
             ObjectPool.Instance.PoolObject(entry.gameObject);
         }
@@ -33,6 +33,6 @@ public class ItemGrid : MonoBehaviour {
     }
 
     private ItemEntry CreateItemEntry() {
-        return ObjectPool.Instance.GetObjectForType(m_Prefab, true).GetComponent<ItemEntry>();
+        return ObjectPool.Instance.GetObjectForType(m_Prefab, false).GetComponent<ItemEntry>();
     }
 }

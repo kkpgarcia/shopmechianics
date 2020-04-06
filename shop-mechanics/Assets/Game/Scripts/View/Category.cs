@@ -49,4 +49,8 @@ public class Category : MonoBehaviour {
             .SetDuration(0.5f)
             .SetEquation(EasingEquations.EaseInOutQuint);
     }
+
+    private void OnDisable() {
+        this.m_Button.onClick.RemoveAllListeners();
+    }
 }

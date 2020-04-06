@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
+using Common.ObjectPool;
 
 public class CategorySelector : MonoBehaviour {
     
     [SerializeField]
-    private Category m_Prefab;
+    private string m_Prefab = "BTN_Category";
     [SerializeField]
     private Transform m_CategoryParent;
 
@@ -28,14 +29,19 @@ public class CategorySelector : MonoBehaviour {
     public void AddCategory(int index, string category, UnityAction<string> callback) {
         Category newCategory = CreateCategory();
         newCategory.Initialize(index, category, callback);
+        newCategory.transform.SetParent(m_CategoryParent);
         m_Categories.Add(newCategory);
     }
 
+    public void ClearCategory() {
+        foreach(Category category in m_Categories)
+            ObjectPool.Instance.PoolObject(category.gameObject);
+
+        m_Categories.Clear();
+    }
+
     private Category CreateCategory() {
-        return GameObject.Instantiate(m_Prefab, 
-            this.transform.position, 
-            this.transform.rotation, 
-            this.m_CategoryParent);
+        return ObjectPool.Instance.GetObjectForType(m_Prefab, false).GetComponent<Category>();
     }
 
     private void OnSelect(object sender, object args) {

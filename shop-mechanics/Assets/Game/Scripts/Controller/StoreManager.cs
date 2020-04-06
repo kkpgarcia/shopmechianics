@@ -5,6 +5,7 @@ using System.Linq;
 public class StoreManager : MonoBehaviour {
     private Dictionary<string, Item[]> m_StoreMap = new Dictionary<string, Item[]>();
     private StoreData m_Model;
+    public Item ItemSelected = null;
     
     public void Initialize(StoreData data) {
         m_Model = data;
@@ -18,6 +19,12 @@ public class StoreManager : MonoBehaviour {
 
             m_StoreMap.Add(category.name, itemData.ToArray());
         }
+    }
+
+    public void Clear() {
+        m_StoreMap.Clear();
+        ItemSelected = null;
+        m_Model = null;
     }
 
     public string[] GetCategories() {
